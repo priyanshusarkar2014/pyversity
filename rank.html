@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Leaderboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* General Body Styles */
+        body {
+            background-color: #1e1e1e;
+            font-family: 'Arial', sans-serif;
+            color: #f5f5f5;
+        }
+ 
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: #f5f5f5;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            background-color: #f5f5f5;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        /* Leaderboard Styles */
+        .leaderboard-item {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .leaderboard-item .rank {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .leaderboard-item.gold .rank {
+            color: #ffd700;
+        }
+
+        .leaderboard-item.silver .rank {
+            color: #c0c0c0;
+        }
+
+        .leaderboard-item.bronze .rank {
+            color: #cd7f32;
+        }
+
+        .leaderboard-item .name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #f5f5f5;
+        }
+
+        .leaderboard-item .score {
+            font-size: 1.2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .leaderboard-item .average,
+        .leaderboard-item .grade {
+            font-size: 1rem;
+            color: #d3d3d3;
+        }
+
+        /* Section Styles */
+        #leaderboard {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #f5f5f5;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        /* Search bar styles */
+        .search-bar {
+            margin-bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: #f5f5f5;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+
+        .search-bar input::placeholder {
+            color: #88e;
+        }
+
+        /* Go Back Button */
+        .go-back-btn {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .go-back-btn a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .go-back-btn a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Pro Leaderboard Start -->
+    <div class="container-xxl" id="leaderboard">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title text-center">Leaderboard</h6>
+                <h1 class="mb-5">The Rank of Students</h1>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by name..." onkeyup="filterLeaderboard()">
+            </div>
+
+            <!-- Leaderboard Items -->
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10" id="leaderboard-items">
+                    <div class="leaderboard-item gold">
+                        <span class="rank">#1</span>
+                        <span class="name">John Doe</span>
+                        <span class="score">5000 pts</span>
+                        <span class="average">Average: 95%</span>
+                        <span class="grade">Grade: A+</span>
+                    </div>
+
+                    <div class="leaderboard-item silver">
+                        <span class="rank">#2</span>
+                        <span class="name">Jane Smith</span>
+                        <span class="score">4500 pts</span>
+                        <span class="average">Average: 90%</span>
+                        <span class="grade">Grade: A</span>
+                    </div>
+
+                    <div class="leaderboard-item bronze">
+                        <span class="rank">#3</span>
+                        <span class="name">Mosh Hamedani</span>
+                        <span class="score">4000 pts</span>
+                        <span class="average">Average: 85%</span>
+                        <span class="grade">Grade: B+</span>
+                    </div>
+
+                    <!-- Additional Leaderboard Items -->
+                    <div class="leaderboard-item white">
+                        <span class="rank">#4</span>
+                        <span class="name">Harry Ali Khan</span>
+                        <span class="score">3500 pts</span>
+                        <span class="average">Average: 80%</span>
+                        <span class="grade">Grade: B</span>
+                    </div>
+
+                    <div class="leaderboard-item white">
+                        <span class="rank">#5</span>
+                        <span class="name">Shradha Khapra</span>
+                        <span class="score">3000 pts</span>
+                        <span class="average">Average: 75%</span>
+                        <span class="grade">Grade: C+</span>
+                    </div>
+
+                    <!-- Add More Items Here -->
+
+                    <!-- Go Back Button -->
+                    <div class="go-back-btn">
+                        <a href="index.html">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pro Leaderboard End -->
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        function filterLeaderboard() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const leaderboardItems = document.getElementById('leaderboard-items').getElementsByClassName('leaderboard-item');
+
+            for (let i = 0; i < leaderboardItems.length; i++) {
+                const name = leaderboardItems[i].getElementsByClassName('name')[0].textContent;
+                if (name.toLowerCase().indexOf(filter) > -1) {
+                    leaderboardItems[i].style.display = '';
+                } else {
+                    leaderboardItems[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #f2f9ff; /* Light sky blue background */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4285f9; /* Sky blue color */
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            color: #555;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="email"], 
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="email"]:focus, 
+        input[type="password"]:focus {
+            border-color: #4285f4; /* Sky blue focus border */
+        }
+
+        input[type="submit"] {
+            background-color: #4285f4; /* Sky blue */
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ae8; /* Darker blue on hover */
+        }
+
+        .google-btn, 
+        .microsoft-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            margin: 5px 0;
+            transition: transform 0.3s;
+        }
+
+        .google-btn {
+            background-color: #4285f4; /* Google Blue */
+        }
+
+        .google-btn:hover {
+            transform: scale(1.05); /* Scale effect on hover */                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+        }
+
+        .microsoft-btn {
+            background-color: #0078d7; /* Microsoft Blue */
+        }
+
+        .microsoft-btn:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+
+        a {
+            color: #0078d7; /* Link color */
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p>Or continue with:</p>
+        <small>Don't have an account? <a href="register.html">Sign Up Here</a></small>
+        <a href="index.html">Go Back</a>
+    </div>
+</body>
+</html>

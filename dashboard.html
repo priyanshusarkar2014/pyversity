@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyversity-Dashboard</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to your SCSS compiled CSS file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Dark background */
+            color: #f0f0f0; /* Light text */
+        }
+        header {
+            background: #333; /* Dark header */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .go-back {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        .go-back:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background: #2a2a2a; /* Dark card background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #007bff; /* Header color */
+        }
+        p {
+            margin: 10px 0; /* Space between paragraphs */
+        }
+        .progress {
+            background-color: #444; /* Progress bar background */
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .progress div {
+            height: 100%;
+            background-color: #007bff; /* Progress bar color */
+            transition: width 0.5s; /* Smooth transition */
+        }
+
+        .go{
+            background-color: #06BBCC; /* Blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius:-1000000px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    margin-top: 15px; /* Moves the button slightly down */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Pyversity Dashboard</h1>
+    <img src="img/amex.png" alt="Profile Picture" style="border-radius: 50%; width: 50px;">
+    <br>
+    <button class="go btn btn-primary"><a class="#">Change Profile</a></button>
+</header>
+
+
+
+<div class="container">
+    <div class="card" id="myCourses">
+        <h2>My Courses</h2>
+        <p>Course 1: 80% Complete</p>
+        <p>Course 2: 60% Complete</p>
+        <p>Course 3: 100% Complete</p>
+    </div>
+
+    <div class="card" id="myScore">
+        <h2>My Score</h2>
+        <p>Current Average Score: 75%</p>
+        <p>Score Trend: <span style="color: rgb(0, 128, 0);">▲ 5%</span></p>
+    </div>
+
+    <div class="card" id="myProfile">
+        <h2>My Profile</h2>
+        <p>Name: John Doe</p>
+        <p>Email: johndoe@example.com</p>
+        <p>Profile Completion: 85%</p>
+    </div>
+
+    <div class="card" id="myRank">
+        <h2>My Rank</h2>
+        <p>Current Rank: 120 out of 1500</p>
+        <div class="progress">
+            <div style="width: 80%;"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Improvement Over Time</h2>
+        <canvas id="improvementChart" width="400" height="200"></canvas>
+    </div>
+    <a href="index.html" class="go-back">Go Back</a>
+</div>
+
+<script>
+const ctx = document.getElementById('improvementChart').getContext('2d');
+const improvementChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['3 Months', '1 Year'],
+        datasets: [{
+            label: 'Score Improvement',
+            data: [65, 80], // Sample data for score improvement
+            backgroundColor: 'rgba(75, 192, 192, 0.8)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'Course Completion Rate',
+            data: [70, 90], // Sample data for course completion rate
+            backgroundColor: 'rgba(153, 102, 255, 0.8)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#f0f0f0' // Change y-axis text color
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#f0f0f0' // Change x-axis text color
+                }
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
